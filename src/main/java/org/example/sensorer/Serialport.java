@@ -7,7 +7,7 @@ import jssc.SerialPortList;
 
     public class Serialport {
 
-        public static void main(String[] args) throws Exception {
+        public SerialPort getport(){
             System.out.println("Viser sensorer");
 
 
@@ -20,32 +20,19 @@ import jssc.SerialPortList;
             if (portnavne.length>0) {
                 String portnavn = portnavne[0];
                 SerialPort port = new SerialPort(portnavn);
+                return port;
+            }
+            return null;
+        }
 
+        public void openport(SerialPort port) {
                 try {
                     port.openPort();
                     port.setParams(SerialPort.BAUDRATE_38400, SerialPort.DATABITS_8,
                             SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
-
-                    for (int i=0; i<10; i++) {
-                        Thread.sleep(2500);
-                        String strengFraPort = hentStrengFraPort(port);
-                        System.out.println(i +  " læst fra port: " + strengFraPort);
-                    }
-
-                    while(true) {
-                        //NU kører den - 5 ever fordi det er længere end 4 ever.
-                        Thread.sleep(2500);
-                        String strengFraPort = hentStrengFraPort(port);
-                        System.out.println(" læst fra port: " + strengFraPort);
-                    }
-
-                    //port.closePort();
                 } catch(SerialPortException e) {
                     System.err.println("Serial port exception: " + e);
                 }
-            }
-
-            System.out.println("Slut");
         }
 
         /**
@@ -53,7 +40,7 @@ import jssc.SerialPortList;
          * @param port porten, der skal læses fra. Porten skal være åben
          * @return en streng læst fra porten. Strengen kan være tom. Returnerer null hvis der ikke kunne læses fra porten
          */
-        private static String hentStrengFraPort(SerialPort port) {
+        public String hentStrengFraPort(SerialPort port) {
             try {
                 int antalByteHentet = port.getInputBufferBytesCount();
                 System.out.println("Der var " + antalByteHentet + " byte klar på porten.");
