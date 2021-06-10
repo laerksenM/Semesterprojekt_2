@@ -27,12 +27,3 @@ public class Filter extends Serialport{
     }
 }
 
-
-
-
-
-
-
-
-
-}
