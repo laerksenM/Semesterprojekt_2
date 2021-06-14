@@ -15,10 +15,13 @@ import jssc.SerialPortList;
             for (int n = 0; n < portnavne.length; n++) {
                 String portnavn = portnavne[n];
                 System.out.println("port nummer "+n+ " er " + portnavn);
+                //printer portnavne ud . skal bruges til at se om der er bluetooth porte?
+
             }
 
             if (portnavne.length>0) {
                 String portnavn = portnavne[0];
+                //Todo check efter om jeres første port er den rigtige
                 SerialPort port = new SerialPort(portnavn);
                 return port;
             }

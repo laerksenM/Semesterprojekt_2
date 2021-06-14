@@ -11,7 +11,7 @@ public class ConnectionSingleton {
     private Statement statement;
     private PreparedStatement preparedStatement;
 
-    public ConnectionSingleton(){
+    public Connection ConnectionSingleton(){
         user="client";
         password = "1234Hej1234";
         String schema = "Semesterprojekt 2";
@@ -26,6 +26,8 @@ public class ConnectionSingleton {
             }
         }catch (SQLException throwables){
             throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return conn;
     }

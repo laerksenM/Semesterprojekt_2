@@ -26,7 +26,7 @@ public class Filter extends Serialport{
             if(i>-1) {
                 sensorværdier = buffer.split("X");
                 if (sensorværdier != null && sensorværdier.length>0){
-                    if (sensorværdier[0].indexOf("Y")<1){
+                    if (sensorværdier[0].indexOf("X")<1){
                         sensorværdier[0] = null;
                     }
                 if (buffer.charAt(buffer.length()-1)!=65){
