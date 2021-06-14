@@ -1,11 +1,9 @@
 package org.example.database;
-
 import java.sql.*;
 
 public class ConnectionSingleton {
 
     private String url, user, password;
-
     private Connection conn = null;
     private ResultSet resultSet;
     private Statement statement;
@@ -26,11 +24,11 @@ public class ConnectionSingleton {
             }
         }catch (SQLException throwables){
             throwables.printStackTrace();
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return conn;
     }
-
 }
 
