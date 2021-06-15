@@ -10,13 +10,11 @@ import jssc.SerialPortList;
         public SerialPort getport(){
             System.out.println("Viser sensorer");
 
-
             String[] portnavne = SerialPortList.getPortNames();
             for (int n = 0; n < portnavne.length; n++) {
                 String portnavn = portnavne[n];
                 System.out.println("port nummer "+n+ " er " + portnavn);
-                //printer portnavne ud . skal bruges til at se om der er bluetooth porte?
-
+                //Todo printer portnavne ud . skal bruges til at se om der er bluetooth porte?
             }
 
             if (portnavne.length>0) {
