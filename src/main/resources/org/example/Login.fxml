@@ -28,7 +28,7 @@
       </Label>
       <TextField layoutX="59.0" layoutY="147.0" fx:id="Brugernavn" />
       <PasswordField layoutX="59.0" layoutY="230.0" fx:id="Kodeord"/>
-      <Button fx:id="loginButton" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#Login" text="Log in">
+      <Button fx:id="loginButton" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#Loginknap" text="Log in">
          <font>
             <Font size="17.0" />
          </font>

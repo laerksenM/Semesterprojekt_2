@@ -13,7 +13,7 @@ public class Serialport {
         for (int n = 0; n < portnavne.length; n++) {
             String portnavn = portnavne[n];
             System.out.println("port nummer " + n + " er " + portnavn);
-            //Todo printer portnavne ud . skal bruges til at se om der er bluetooth porte?
+            //Todo printer portnavne ud. Skal bruges til at se om der er bluetooth porte?
         }
 
         if (portnavne.length > 0) {
