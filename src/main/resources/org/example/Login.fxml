@@ -28,14 +28,14 @@
       </Label>
       <TextField layoutX="59.0" layoutY="147.0" fx:id="Brugernavn" />
       <PasswordField layoutX="59.0" layoutY="230.0" fx:id="Kodeord"/>
-      <Button fx:id="loginButton" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#LoginKnap" text="Log in">
+      <Button fx:id="loginButton" layoutX="105.0" layoutY="287.0" mnemonicParsing="false" onAction="#Login" text="Log in">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
       <ImageView fitHeight="320.0" fitWidth="323.0" layoutX="256.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Billederjavafx/img.png" />
+            <Image url="@../../../../../Billederjavafx/img.png" />
          </image>
       </ImageView>
    </children>

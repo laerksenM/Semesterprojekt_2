@@ -19,7 +19,7 @@ public class Filter extends Serialport{
         while (j<50){
           String s= hentStrengFraPort(port);
           sensorværdier = s.split("X");
-          int[]convert=Integer.parseInt(s.split(j));
+          //int[]convert=Integer.parseInt(s.split(j));
 
         if (s!= null){
             buffer = buffer + s;
