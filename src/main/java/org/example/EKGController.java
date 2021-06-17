@@ -10,7 +10,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
-public class SecondaryController extends Application {
+public class EKGController extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -44,6 +44,9 @@ public class SecondaryController extends Application {
     public void main(String[] args){
         launch();
     }
+
+
+
 
 }
 

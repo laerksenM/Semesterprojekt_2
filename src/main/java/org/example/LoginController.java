@@ -8,7 +8,7 @@ public class LoginController {
 
     @FXML
     private void Loginknap() throws IOException {
-        App.setRoot("secondary");
+        App.setRoot("EKGforsog");
     }
 
 }
