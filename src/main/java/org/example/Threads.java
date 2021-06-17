@@ -3,6 +3,7 @@ package org.example;
 import javafx.application.Platform;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Label;
+import org.example.sensorer.SerialPort;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

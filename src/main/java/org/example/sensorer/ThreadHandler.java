@@ -21,6 +21,7 @@ public class ThreadHandler {
     public static Boolean getShouldMyThreadBeRunning() {
         return ShouldMyThreadBeRunning;
     }
+    
 
     public static void setShouldMyThreadBeRunning(Boolean shouldMyThreadBeRunning) {
         ShouldMyThreadBeRunning = shouldMyThreadBeRunning;
