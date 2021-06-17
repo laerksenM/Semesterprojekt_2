@@ -1,9 +1,8 @@
-package org.example.database;
+package org.example.rod;
 
 import javafx.fxml.FXML;
 import org.example.App;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

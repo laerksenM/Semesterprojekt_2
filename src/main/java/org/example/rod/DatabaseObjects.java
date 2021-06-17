@@ -1,4 +1,4 @@
-package org.example.database;
+/*package org.example.database;
 
 public class DatabaseObjects {
 
@@ -56,3 +56,4 @@ import java.util.ArrayList;
     }
 
 }
+*/

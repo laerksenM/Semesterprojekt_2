@@ -1,7 +1,6 @@
-package org.example.database;
+package org.example.rod;
 
 import javafx.fxml.FXML;
-import org.example.App;
 
 import java.sql.*;
 
@@ -12,7 +11,7 @@ public class ConnectionSQL {
     private static final String SELECT_QUERY = "SELECT * FROM Sensorværdi WHERE Bruger = cpr and Kodeord = kodeord";
 
     @FXML
-    App app = new App();
+    //App app = new App();
 
     public boolean validate(String Bruger, String Kodeord) throws SQLException {
 

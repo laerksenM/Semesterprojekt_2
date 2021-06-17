@@ -1,4 +1,4 @@
-package org.example.database;
+/*package org.example.database;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -65,3 +65,4 @@ import java.util.ArrayList;
     }
 
 }
+*/

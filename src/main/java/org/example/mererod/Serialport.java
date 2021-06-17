@@ -1,4 +1,4 @@
-package org.example.sensorer;
+package org.example.mererod;
 
 import jssc.SerialPort;
 import jssc.SerialPortException;
@@ -44,7 +44,6 @@ public class Serialport {
     public String hentStrengFraPort(SerialPort port) {
         try {
             int antalByteHentet = port.getInputBufferBytesCount();
-            System.out.println("Der var " + antalByteHentet + " byte klar på porten.");
             if (antalByteHentet == -1) return null;
             String tekst = port.readString();
             return tekst;
@@ -54,6 +53,7 @@ public class Serialport {
         }
         return null;
     }
+
     public static void main(String[] args) throws SerialPortException {
      var sp = new Serialport();
      var port = sp.getport();

@@ -1,4 +1,4 @@
-package org.example;
+/*package org.example;
 
 import java.io.IOException;
 
@@ -50,3 +50,4 @@ public class EKGController extends Application {
 }
 
 
+*/

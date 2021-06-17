@@ -1,4 +1,4 @@
-package org.example.database;
+package org.example.rod;
 import java.sql.*;
 
 public class ConnectionSingleton {
@@ -10,9 +10,9 @@ public class ConnectionSingleton {
     private PreparedStatement preparedStatement;
 
     public Connection ConnectionSingleton(){
-        user="client";
-        password = "1234Hej1234";
-        String schema = "Semesterprojekt 2";
+        user="root";
+        password = "Haj1234!";
+        String schema = "EKG";
         url = "jbdc:mysql://"+ "localhost:3306" + schema + "?serverTimezone=Europe/Amsterdam&amp";
         System.out.println("Connection attemp");
         try {

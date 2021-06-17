@@ -1,4 +1,4 @@
-package org.example.sensorer;
+package org.example.mererod;
 
 public class Sensor implements Runnable{
 

@@ -8,6 +8,8 @@ public class EKGforsogcontroller {
     @FXML
     public void Tilbage() throws IOException {
         App.setRoot("Login");
+
+
     }
 
 

@@ -1,4 +1,4 @@
-package org.example.database;
+package org.example.rod;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,21 +7,26 @@ import java.sql.*;
 
 public class DataKommunikation {
 
-     static Connection connection;
+     //static Connection connection;
 
     public static void main(String[] arg) throws Exception {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         System.out.println("Driveren bliver indlæst");
 
 
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/EKG?serverTimezone=UTC", "root", "Haj1234!");
-        System.out.println("Nu er der forbindelse");
+      //vi laver en connection kaldet "c"
+        if(c!=null){
+            System.out.println("Nu er der forbindelse");
+        }
+
+
 
         Statement stmt = c.createStatement();
-        DBadgang dba = new DBadgang(connection);
+        //DBadgang dba = new DBadgang(connection);
 
 
-        String[] combo=  dba.getUserAndPassword("1234567890","Haj123");
+        //String[] combo=  dba.getUserAndPassword("1234567890","Haj123");
 
         String password = "Haj123";
         String CPR="1234567890";
@@ -31,8 +36,11 @@ public class DataKommunikation {
         String data = "";
         String tid = "";
 
+        //hvad var forskellen på et PREPARED Statement?
+
+        //og et almindeligt statement?
         stmt.executeUpdate(
-                "insert into SENSORVÆRDI(CPR,TID,DATA) values('" + cpr + "', '" + data + "','" + tid + "')");
+                "insert into SENSORVÆRDI(CPR,DATA) values('? ,? )");
 
         // forespørgsler ved søgning
         ResultSet rs = stmt.executeQuery("select CPR, TID, DATA from SENSORVÆRDI");

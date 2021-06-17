@@ -1,4 +1,4 @@
-package org.example.database;
+package org.example.rod;
 
 import java.sql.*;
 
@@ -12,6 +12,8 @@ public class DBadgang {
     public DBadgang(Connection connection) {
         this.con = connection;
     }
+
+
 
     public void insertUser(String CPR, String Password) {
         try {
@@ -29,7 +31,10 @@ public class DBadgang {
                             ") ;";
             statement = con.createStatement();
             statement.execute(lavTabel);
-            String SQLInsert = "insert into Persons(CPR,password) values( ? ,? );";
+
+
+
+            String SQLInsert = "insert into EKG(int[] CPR,password) values( ? ,? );";
             preparedStatement = con.prepareStatement(SQLInsert);
             preparedStatement.setString(1, CPR);
             preparedStatement.setString(2, Password);
