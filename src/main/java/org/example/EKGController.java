@@ -47,7 +47,6 @@ public class EKGController extends Application {
 
 
 
-
 }
 
 
