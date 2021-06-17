@@ -1,15 +1,16 @@
 package org.example.database;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-private Connection conn;
-private PreparedStatement preparedStatement;
-private Statement statement;
-public class DBadgang (Connection connection){
-        this.conn = connection;
-//all it does is contain logic for interacting with the database.
+public class DBadgang(Connection conn){
+
+    private final Connection con;
+    private Connection connection;
+    private PreparedStatement preparedStatement;
+    private Statement statement;
+
+    public DBadgang(Connection connection) {
+        this.con = connection;
     }
 
     public void insertUser(String mail,String Password){
@@ -26,10 +27,10 @@ public class DBadgang (Connection connection){
                             "  PRIMARY KEY (`idPersons`),\n" +
                             "  UNIQUE KEY `mail_UNIQUE` (`mail`)\n" +
                             ") ;";
-            statement = conn.createStatement();
+            statement = con.createStatement();
             statement.execute(lavTabel);
             String SQLInsert = "insert into Persons(mail,passwd) values( ? ,? );";
-            preparedStatement = conn.prepareStatement(SQLInsert);
+            preparedStatement = con.prepareStatement(SQLInsert);
             preparedStatement.setString(1,mail);
             preparedStatement.setString(2,Password);
             preparedStatement.executeUpdate();
@@ -47,7 +48,7 @@ public class DBadgang (Connection connection){
                     "select mail,passwd from Persons where mail =" +
                     "" +
                     " '%s' and passwd = '%s';";
-            statement = conn.createStatement();
+            statement = con.createStatement();
             // statement.executeQuery(SqlSEARCH);
             ResultSet resultSet = statement.executeQuery(String.format(SqlSEARCH, mail,password ));
             if(resultSet!=null && resultSet.next()){
