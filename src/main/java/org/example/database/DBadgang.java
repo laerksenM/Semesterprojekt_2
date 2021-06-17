@@ -2,7 +2,7 @@ package org.example.database;
 
 import java.sql.*;
 
-public class DBadgang(Connection conn){
+public class DBadgang {
 
     private final Connection con;
     private Connection connection;
@@ -13,8 +13,8 @@ public class DBadgang(Connection conn){
         this.con = connection;
     }
 
-    public void insertUser(String mail,String Password){
-        try{
+    public void insertUser(String CPR, String Password) {
+        try {
             //if no table:
             String lavTabel =
                     "CREATE TABLE if not exists `Persons` (\n" +
@@ -29,42 +29,42 @@ public class DBadgang(Connection conn){
                             ") ;";
             statement = con.createStatement();
             statement.execute(lavTabel);
-            String SQLInsert = "insert into Persons(mail,passwd) values( ? ,? );";
+            String SQLInsert = "insert into Persons(CPR,password) values( ? ,? );";
             preparedStatement = con.prepareStatement(SQLInsert);
-            preparedStatement.setString(1,mail);
-            preparedStatement.setString(2,Password);
+            preparedStatement.setString(1, CPR);
+            preparedStatement.setString(2, Password);
             preparedStatement.executeUpdate();
-            System.out.println("User inserted with parameters:"+mail+" and:"+Password);
-        }catch(SQLException ex){
+            System.out.println("User inserted with parameters:" + CPR + " and:" + Password);
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
     }
 
-    public String[] getUserAndPassword(String mail,String password){
+    public String[] getUserAndPassword(String CPR, String password) {
         String[] data = new String[2];
-        try{
+        try {
             String SqlSEARCH = "\n" +
                     "select mail,passwd from Persons where mail =" +
                     "" +
                     " '%s' and passwd = '%s';";
             statement = con.createStatement();
             // statement.executeQuery(SqlSEARCH);
-            ResultSet resultSet = statement.executeQuery(String.format(SqlSEARCH, mail,password ));
-            if(resultSet!=null && resultSet.next()){
-                data[0]=resultSet.getString(1);
+            ResultSet resultSet = statement.executeQuery(String.format(SqlSEARCH, CPR, password));
+            if (resultSet != null && resultSet.next()) {
+                data[0] = resultSet.getString(1);
                 //for mail
-                data[1]=resultSet.getString(2);
+                data[1] = resultSet.getString(2);
                 //for password
                 //verify
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return data;
     }
 
-    public int[] returnMeasurementsfromDB(int size){
+    public int[] returnMeasurementsfromDB(int size) {
 
         return new int[size];
     }

@@ -6,7 +6,7 @@ import org.example.App;
 import java.sql.*;
 
 public class ConnectionSQL {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/Haj?serverTimezone=UTC";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/EKG?serverTimezone=UTC";
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "Haj1234!";
     private static final String SELECT_QUERY = "SELECT * FROM Sensorværdi WHERE Bruger = cpr and Kodeord = kodeord";
