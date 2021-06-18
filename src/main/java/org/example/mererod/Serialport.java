@@ -54,14 +54,7 @@ public class Serialport {
         return null;
     }
 
-    public static void main(String[] args) throws SerialPortException {
-     var sp = new Serialport();
-     var port = sp.getport();
-     var s = port.openPort();
-     System.out.println(s);
-     var text = sp.hentStrengFraPort(port);
-     System.out.println(text);
-    }
+
 }
 
 

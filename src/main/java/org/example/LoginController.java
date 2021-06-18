@@ -8,7 +8,9 @@ public class LoginController {
 
     @FXML
     private void Loginknap() throws IOException {
-        App.setRoot("EKGforsog");
+        App.setRoot("Startside");
+
+        // her der skal vi have vores data komplet ind med vores cpr, evt bare en bruger?
     }
 
 }

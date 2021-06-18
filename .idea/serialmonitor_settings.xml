@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="SerialMonitorSettings" PortName="/dev/cu.usbmodem14201" BaudRate="38400" LineEndingsIndex="0" ShowStatusWidget="true" />
+  <component name="SerialMonitorSettings" PortName="/dev/cu.usbmodem14101" BaudRate="38400" LineEndingsIndex="0" ShowStatusWidget="true" />
 </project>
