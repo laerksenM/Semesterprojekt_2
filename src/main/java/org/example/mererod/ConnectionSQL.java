@@ -1,4 +1,4 @@
-package org.example.rod;
+package org.example.mererod;
 
 import javafx.fxml.FXML;
 

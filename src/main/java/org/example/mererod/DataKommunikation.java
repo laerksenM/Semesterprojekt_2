@@ -1,4 +1,4 @@
-package org.example.rod;
+package org.example.mererod;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

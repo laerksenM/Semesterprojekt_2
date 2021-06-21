@@ -16,6 +16,8 @@ import java.util.stream.IntStream;
 public class Startside implements SerialListener {
 
     private boolean runOnce = false;
+    XYChart.Series series;
+    int counter=0;
 
     @FXML
     private LineChart Chart;
@@ -26,6 +28,8 @@ public class Startside implements SerialListener {
         // her der skal vi have at vi starter for porten, vi skal have vores data ind og lave en dynamisk.
         //med det data der ruller ind
         // slut og gem skal fungere som
+        series = new XYChart.Series();
+        Chart.getData().add(series);
         Serialporten.getInstance().OpenPort();
         Serialporten.getInstance().addListener(this);
     }
@@ -35,7 +39,8 @@ public class Startside implements SerialListener {
         //Denne funktion virker, færdig
     }
 
-    public void slut() throws IOException {
+    public void slut() throws IOException, SerialPortException {
+        Serialporten.getInstance().port.closePort();
         // her skal vi have at den slutter og gemmer
     }
 
@@ -51,16 +56,13 @@ public class Startside implements SerialListener {
             @Override
             public void run() {
                 Serialporten serialPort = Serialporten.getInstance();
-                Chart.getData().clear();
-                XYChart.Series series = new XYChart.Series();
 
-                List<Integer> data = serialPort.filteredData;
+                List<Integer> data = serialPort.realdata;
                 for (int i = 0; i < data.size(); i ++) {
                     // i is the index
                     // yourArrayList.get(i) is the element
                     series.getData().add(new XYChart.Data(String.valueOf(i), data.get(i)));
                 }
-                Chart.getData().add(series);
 
                 runOnce = true;
             }

@@ -28,6 +28,7 @@ class Serialporten extends Thread {
 
     List<String> buffer = new ArrayList<>();
     List<Integer> filteredData = new ArrayList<>();
+    List<Integer> realdata = new ArrayList<>();
 
     private List<SerialListener> listeners = new ArrayList<SerialListener>();
 
@@ -48,11 +49,18 @@ class Serialporten extends Thread {
             port.addEventListener(serialPortEvent -> {
                 try {
                     String receivedData = port.readString(serialPortEvent.getEventValue());
+                    if (receivedData.contains("�")){
+                        receivedData="";
+                    }
                     filter(receivedData);
+                    System.out.println(realdata.size());
 
                     for (SerialListener hl : listeners) {
-                        hl.newData();
-                    }
+                        realdata.addAll(filteredData);
+                        if(realdata.size()>=2000){ hl.newData();
+                            realdata.clear();}
+
+                     }
                 } catch (SerialPortException ex) {
                     System.out.println("Error in receiving string from COM-port: " + ex);
                 }

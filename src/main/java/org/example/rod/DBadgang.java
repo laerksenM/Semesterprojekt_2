@@ -20,14 +20,11 @@ public class DBadgang {
             //if no table:
             String lavTabel =
                     "CREATE TABLE if not exists `Persons` (\n" +
-                            "  `idPersons` int NOT NULL AUTO_INCREMENT,\n" +
-                            "  `mail` varchar(45) DEFAULT NULL,\n" +
-                            "  `passwd` varchar(45) NOT NULL,\n" +
-                            "  `firstname` varchar(45) DEFAULT NULL,\n" +
-                            "  `lastname` varchar(45) DEFAULT NULL,\n" +
-                            "  `role` varchar(45) DEFAULT NULL,\n" +
-                            "  PRIMARY KEY (`idPersons`),\n" +
-                            "  UNIQUE KEY `mail_UNIQUE` (`mail`)\n" +
+                            "  `id` int NOT NULL AUTO_INCREMENT,\n" +
+                            "  `CPR` varchar(45) DEFAULT NULL,\n" +
+                            "  `Password` varchar(45) NOT NULL,\n" +
+                            "  PRIMARY KEY (`id`),\n" +
+                            "  UNIQUE KEY (`id`),\n" +
                             ") ;";
             statement = con.createStatement();
             statement.execute(lavTabel);
