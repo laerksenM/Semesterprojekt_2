@@ -16,11 +16,12 @@ import java.util.stream.IntStream;
 public class Startside implements SerialListener {
 
     private boolean runOnce = false;
-    XYChart.Series series;
+    XYChart.Series<Number,Number> series; // vi gør den global
     int counter=0;
 
     @FXML
-    private LineChart Chart;
+    private LineChart<Number,Number> Chart;
+
 
     @FXML
     public void start() throws IOException {
@@ -28,10 +29,12 @@ public class Startside implements SerialListener {
         // her der skal vi have at vi starter for porten, vi skal have vores data ind og lave en dynamisk.
         //med det data der ruller ind
         // slut og gem skal fungere som
-        series = new XYChart.Series();
+        series = new XYChart.Series<Number,Number>();
         Chart.getData().add(series);
         Serialporten.getInstance().OpenPort();
         Serialporten.getInstance().addListener(this);
+
+        //preparedStatement
     }
 
     public void logud() throws IOException {
@@ -52,16 +55,16 @@ public class Startside implements SerialListener {
     public void newData() {
         //if (Serialporten.getInstance().filteredData.toArray().length < 50) { return; }
         //if (runOnce) { return; }
-        Platform.runLater(new Runnable(){
+        Platform.runLater(new Runnable(){ //
             @Override
             public void run() {
-                Serialporten serialPort = Serialporten.getInstance();
+                Serialporten serialPort = Serialporten.getInstance(); // bruger vi til at returnere implematieret objekt.
 
                 List<Integer> data = serialPort.realdata;
                 for (int i = 0; i < data.size(); i ++) {
                     // i is the index
                     // yourArrayList.get(i) is the element
-                    series.getData().add(new XYChart.Data(String.valueOf(i), data.get(i)));
+                    series.getData().add(new XYChart.Data(String.valueOf(i), data.get(i))); //
                 }
 
                 runOnce = true;
