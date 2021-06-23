@@ -31,6 +31,8 @@ public class DBconnection {
         }
         return connection;
     }
-    Connection conn = DBconnection.getMYSQLConnection("root", "1234Hej1234", "EKG");
+    Connection conn = DBconnection.getMYSQLConnection("root", "Haj1234!", "EKG");
 
+    public void InsertIntoMeasurementsArray() {
+    }
 }

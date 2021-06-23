@@ -1,4 +1,4 @@
-package org.example.rod;
+/*package org.example.rod;
 
 import java.sql.Connection;
 
@@ -26,3 +26,6 @@ public class DBconnectionTester {
         System.out.println(combo[0]+combo[1]);
     }
 }
+
+
+ */

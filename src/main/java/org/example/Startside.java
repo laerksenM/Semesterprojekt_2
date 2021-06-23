@@ -8,13 +8,27 @@ import javafx.scene.chart.XYChart;
 import jssc.SerialPortException;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+//import org.example.IndDataSensorværdier;
+//import org.example.rod.DBadgang;
+import org.example.rod.DBconnection;
+import java.util.concurrent.ScheduledExecutorService;
+
 
 public class Startside implements SerialListener {
 
+    //ScheduledExecutorService event;
+    //DBconnection dbconn = new DBconnection();
+    //DBadgang dbad = new DBadgang();
+    boolean control=true;
+    //Connection conn= dbconn.getMYSQLConnection();
+    //IndDataSensorværdier inddata=new IndDataSensorværdier();
     private boolean runOnce = false;
     XYChart.Series<Number,Number> series; // vi gør den global
     int counter=0;
@@ -33,9 +47,21 @@ public class Startside implements SerialListener {
         Chart.getData().add(series);
         Serialporten.getInstance().OpenPort();
         Serialporten.getInstance().addListener(this);
+        System.out.println();
+
+        //Dokumentation på at vi har kunne bruge Evenlistener, og add.Eventlistenter og close.port
+        //http://javadox.com/org.scream3r/jssc/2.8.0/javadoc/jssc/SerialPort.html#addEventListener(jssc.SerialPortEventListener)
 
         //preparedStatement
-    }
+        ArrayList<Integer[]> array = new ArrayList<Integer[]>();
+        //array = Serialporten.add(Serialporten.getInstance()); - -ikke medd
+        //event = Executors.newSingleThreadExecutor(() ->
+                //Platform.runLater(()->
+                        //for (Integer[] data : array) {
+
+                            //dbad.InsertIntoMeasurementsArray(1234567890, data[]))); // meningen var at vi skulle have data i denne.
+                        }
+
 
     public void logud() throws IOException {
         App.setRoot("Login");

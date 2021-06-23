@@ -13,7 +13,7 @@ import java.util.stream.*;
 import static java.lang.Integer.parseInt;
 
 
-interface SerialListener {
+interface SerialListener { // vi har implemteret et Runnable interface, hvilket gør det muligt så kan det dele det sammen objekt med flere tråde.
     void newData();
 }
 
@@ -60,7 +60,7 @@ class Serialporten extends Thread {
                         receivedData = ""; // så hvis vi modtager data der indeholder dette tegne vil den blive erstattet af en tom streng.
                     }
                     filter(receivedData);
-                    System.out.println(realdata.size());
+                    //System.out.println(realdata.size());
 
                     for (SerialListener hl : listeners) {
                         realdata.addAll(filteredData);
@@ -71,16 +71,20 @@ class Serialporten extends Thread {
 
                     }
                 } catch (SerialPortException ex) {
-                    System.out.println("Error in receiving string from COM-port: " + ex);
+                    System.out.println("Fejl i stringen fra COM-port: " + ex);
                 }
             });
         } catch (SerialPortException e) {
-            System.err.println("Serial port exception: " + e);
+            System.err.println("Serialport exception: " + e);
         }
     }
 
     public void filter(String input) {
-        while (true) {
+        //while (true) {
+//For at filtrere vores data fra SerielPorten, har vi brugt
+//https://www.geeksforgeeks.org/10-ways-to-create-a-stream-in-java/
+            //Hvordan man kan implentere streams i java
+            //http://javadox.com/org.scream3r/jssc/2.8.0/javadoc/jssc/SerialPortException.html
             if (buffer.size() == 0) { //
                 buffer.add(input);
             }
@@ -106,18 +110,20 @@ class Serialporten extends Thread {
             // tilføj filteret data
             filteredData = Arrays.stream(data.split("X")).map(e -> { // vi mapper det som den splitter, bruger lamda
                 return parseInt(e);// vi parser den til en int
+                //System.out.println(filteredData);
 
             }).collect(Collectors.toList());
 
             buffer.add(input); // vi tilføjer vores input
-
-            try {
-                Thread.sleep(2000); // vi sætter den til at sleep når vi modtager 2000 målinger.
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            //try {
+               // Thread.sleep(200000);
+            //} catch (InterruptedException e) {
+              //  e.printStackTrace();
             }
+
         }
 
-    }
-}
+
+
+
 

@@ -1,4 +1,4 @@
-package org.example.rod;
+/*package org.example;
 
 import java.sql.*;
 import java.sql.DriverManager;
@@ -28,7 +28,9 @@ public class IndDataSensorværdier {
             //stmt.executeUpdate(sql);
             sql = "INSERT INTO Sensorværdi (id, data, tid, cpr)" +
 
-                    "VALUES(2 , 1 , tid , '0987654321' )";
+                    "VALUES(?,? ,?,?)";
+
+
 
 
             PreparedStatement preparedStatement;
@@ -58,4 +60,4 @@ public class IndDataSensorværdier {
 
 
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package org.example.rod;
+/package org.example.rod;
 
 import java.sql.*;
 
@@ -8,6 +8,8 @@ public class DBadgang {
     private Connection connection;
     private PreparedStatement preparedStatement;
     private Statement statement;
+    Connection conn = null;
+    Statement stmt = null;
 
     public DBadgang(Connection connection) {
         this.con = connection;
@@ -42,6 +44,36 @@ public class DBadgang {
         }
 
     }
+    public void insertMeasurementsIntoMeasurementsTable(int[] datasomIfaarfraSensorKlassen,String CPR){
+
+        try{
+            //if no table:
+            String lavTabel ="CREATE TABLE if not exists `measurements` (\n" +
+                    "  `id` int NOT NULL AUTO_INCREMENT,\n" +
+                    "  `CPR` varchar(11) NOT NULL,\n" +
+                    "  `measurementvalue` int NOT NULL,\n" +
+                    "  `lortetid` timestamp NULL DEFAULT CURRENT_TIMESTAMP,\n" +
+                    "  PRIMARY KEY (`id`)\n" +
+                    ") ";
+
+            statement = conn.createStatement();
+            statement.execute(lavTabel);
+
+            String SQLInsert = "insert into measurements(measurementvalue,CPR) values (?,?);";
+            preparedStatement = conn.prepareStatement(SQLInsert);
+            //loop over the array or arrayList
+            for (int i=0;i<datasomIfaarfraSensorKlassen.length;i++){
+                preparedStatement.setInt(1,datasomIfaarfraSensorKlassen[i]);
+                preparedStatement.setString(2,CPR);
+                //alloker første plads i SQL Statementet - til at være det I'te element fra et Array eller ArrayList
+                preparedStatement.addBatch();
+            }
+            preparedStatement.executeBatch();
+            System.out.println("Data inserted, with "+ preparedStatement.getClass() +" values");
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
 
     public String[] getUserAndPassword(String CPR, String password) {
         String[] data = new String[2];
@@ -62,14 +94,28 @@ public class DBadgang {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+
         }
+
         return data;
+
+        public void InsertIntoMeasurementsArray(int value1, String[] value2){
+            String SQLMeasurementsArray = "INSERT INTO EKG (cpr, data) VALUES (?,?)";
+            try {
+                preparedStatement = connection.prepareStatement(SQLMeasurementsArray);
+                for (int i=0; i < value2.length; i++){
+                    preparedStatement.setInt(1, value1);
+                    preparedStatement.setString(2, value 2[i]);
+                    preparedStatement.addBatch();
+                }
+                preparedStatement.executeBatch();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+    //public int[] returnMeasurementsfromDB(int size) {
+
+       // return new int[size];
     }
 
-    public int[] returnMeasurementsfromDB(int size) {
-
-        return new int[size];
-    }
-
-
-}

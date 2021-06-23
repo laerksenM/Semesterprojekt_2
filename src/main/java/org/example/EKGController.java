@@ -10,7 +10,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
-public class EKGController extends Application {
+public class EKGController extends Application  {
 
     @Override
     public void start(Stage stage) throws Exception {

@@ -22,7 +22,7 @@
       <Button fx:id="LogudButton" layoutX="509.0" layoutY="32.0" mnemonicParsing="false" onAction="#logud" text="Logud" />
       <Button fx:id="StartMål" layoutX="20.0" layoutY="19.0" mnemonicParsing="false" onAction="#start" text="Start" />
       <Button fx:id="SlutOgGem" layoutX="88.0" layoutY="19.0" mnemonicParsing="false" onAction="#slut" text="Slut og gem" />
-      <TextField layoutX="198.0" layoutY="46.0" />
+      <TextField layoutX="198.0" layoutY="46.0" promptText="Søg CPR" />
       <Button fx:id="SogCPR" layoutX="371.0" layoutY="46.0" mnemonicParsing="false" onAction="#sog" text="Søg" />
       <Label fx:id="Pulsen" layoutX="369.0" layoutY="11.0" prefHeight="17.0" prefWidth="45.0" />
       <Text layoutX="198.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuværende puls" />

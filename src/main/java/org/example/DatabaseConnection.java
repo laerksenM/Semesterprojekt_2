@@ -1,4 +1,4 @@
-package org.example.rod;
+package org.example;
 import java.sql.*;
 import java.sql.DriverManager;
 
@@ -56,3 +56,4 @@ public class IndDataBrugere {
         }
     }
 }
+*/
