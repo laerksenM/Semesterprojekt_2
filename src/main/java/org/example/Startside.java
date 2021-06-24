@@ -1,24 +1,16 @@
 package org.example;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import jssc.SerialPortException;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 //import org.example.IndDataSensorværdier;
 //import org.example.rod.DBadgang;
-import org.example.rod.DBconnection;
-import java.util.concurrent.ScheduledExecutorService;
 
 
 public class Startside implements SerialListener {
